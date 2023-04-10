@@ -1,0 +1,145 @@
+
+.claim-form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fade-in 1s;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+  input[type='text'],
+  input[type='number'],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M1 11l15 15 15-15z" fill="%23626262"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 10px;
+    background-size: 10px;
+  }
+  
+  input[type='date']::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-group-addon {
+    padding: 10px;
+    background-color: #ccc;
+    border: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2196f3;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    
+  }
+  
+  button:hover {
+    background-color: #0c7cd5;
+  }
+  
+  .error-message,
+  .success-message {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center
+  }
+  
+  .error-message {
+  background-color: #e74c3c;
+  }
+  
+  .success-message {
+  background-color: #2ecc71;
+  }
+  
+  @media screen and (max-width: 600px) {
+  input[type='text'],
+  input[type='number'],
+  textarea,
+  select {
+  font-size: 14px;
+  }
+  
+  .form-group {
+  margin-bottom: 10px;
+  }
+  
+  label {
+  font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2196f3;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+  }
+  
+  
+  button:hover {
+    background-color: #0c7cd5;
+  }
+  
+  }
