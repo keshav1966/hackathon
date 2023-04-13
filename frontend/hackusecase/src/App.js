@@ -1,51 +1,106 @@
-import React, { Component } from "react";
-import "./css/ClaimForm.css";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  TextField,
+  Button,
+  Grid,
+  Typography,
+  Snackbar,
+  IconButton,
+} from "@material-ui/core";
+import { Close } from "@material-ui/icons";
 
-class ClaimForm extends Component {
-  constructor(props) {
-    super(props);
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    background: 'linear-gradient(to bottom, #fff, #fabb07)',
+  },
+  form: {
+    border: '1px solid #ccc',
+    padding: theme.spacing(4),
+    backgroundColor: '#ffffff', // update foreground color here
+    borderRadius: theme.spacing(1),
+    maxWidth: 400,
+    width: '100%',
+    boxShadow: '0 0 20px rgba(0, 0, 0, 0.2)', // add box shadow
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
+  inputLabel: {
+    color: 'rgba(0, 0, 0, 0.54)',
+  },
+  success: {
+    backgroundColor: '#4caf50 !important',
+  },
+  error: {
+    backgroundColor: '#f44336 !important',
+  },
+}));
 
-    this.state = {
-      category: "",
-      description: "",
-      receiptDate: "",
-      claimAmount: "",
-      successMessage: "",
-      errorMessage: "",
-    };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-  }
+const ClaimForm = () => {
+  const classes = useStyles();
 
-  handleInputChange(event) {
+  const maxPolicyAmount = {
+    Telephone: 1000,
+    Internet: 1000,
+    Medical: 5000,
+    Travel: 25000,
+  };
+
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [receiptDate, setReceiptDate] = useState("");
+  const [claimAmount, setClaimAmount] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showForm, setShowForm] = useState(true);
+
+  const handleInputChange = (event) => {
     const target = event.target;
     const name = target.name;
     const value = target.value;
+  
+    if (name === "category") {
+      setCategory(value);
+    } else if (name === "description") {
+      setDescription(value);
+    } else if (name === "claimAmount") {
+      setClaimAmount(value);
+    } else if (name === "receiptDate") {
+      setReceiptDate(value);
+    }
+    
+  };
 
-    this.setState({
-      [name]: value,
-    });
-  }
+  const today = new Date().toISOString().slice(0, 10); // get current date in ISO format
 
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const maxPolicyAmount = {
-      Telephone: 1000,
-      Internet: 1000,
-      Medical: 5000,
-      Travel: 25000,
-    };
-
-    const { category, description, receiptDate, claimAmount } = this.state;
-
     if (!category || !description || !receiptDate || !claimAmount) {
-      this.setState({
-        errorMessage: "All fields are mandatory",
-        successMessage: "",
-      });
+      setErrorMessage("All fields are mandatory");
+      setSuccessMessage("");
+      setSnackbarOpen(true);
+      return;
+    }
+
+    if (description.length > 200) {
+      setErrorMessage("Description cannot exceed 200 characters");
+      setSuccessMessage("");
+      setSnackbarOpen(true);
       return;
     }
 
@@ -58,131 +113,162 @@ class ClaimForm extends Component {
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
     if (diffDays > 30) {
-      this.setState({
-        errorMessage:
-          "Difference between the Receipt date and submission date should not be more than 30 days",
-        successMessage: "",
-      });
+      setErrorMessage(
+        "Difference between the Receipt date and submission date should not be more than 30 days"
+      );
+      setSuccessMessage("");
+      setSnackbarOpen(true);
       return;
     }
 
     const maxAmount = maxPolicyAmount[category];
 
     if (claimAmount > maxAmount) {
-      this.setState({
-        errorMessage: `Claim amount should not be greater than max policy amount for ${category} category`,
-        successMessage: "",
-      });
+      setErrorMessage(
+        `Claim amount should not be greater than max policy amount for ${category} category`
+      );
+      setSuccessMessage("");
+      setSnackbarOpen(true);
       return;
     }
 
-    this.setState({
-      successMessage: "Successfully submitted",
-      errorMessage: "",
-    });
-  }
+    setIsSubmitting(true);
+    
+    setTimeout(() => {
+      setSuccessMessage("Successfully submitted");
+      setErrorMessage("");
+      setSnackbarOpen(true);
+      setIsSubmitting(false);
+      setShowForm(false);
+      setTimeout(() => setShowForm(true), 2000);
+      setCategory("");
+      setDescription("");
+      setReceiptDate("");
+      setClaimAmount("");
+    }, 2000);
+  };
 
-  handleReset() {
-    this.setState({
-      category: "",
-      description: "",
-      receiptDate: "",
-      claimAmount: "",
-      successMessage: "",
-      errorMessage: "",
-    });
-  }
+  const handleReset = () => {
+    setCategory("");
+    setDescription("");
+    setReceiptDate("");
+    setClaimAmount("");
+    setSuccessMessage("");
+    setErrorMessage("");
+  };
 
-  render() {
-    const {
-      category,
-      description,
-      receiptDate,
-      claimAmount,
-      successMessage,
-      errorMessage,
-    } = this.state;
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
 
-    return (
-      <div className="claim-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <center>
-            <h1>Claim Form</h1>
-          </center>
-          {errorMessage && <div className="error-message">{errorMessage}</div>}
-          {successMessage && (
-            <div className="success-message">{successMessage}</div>
-          )}
-          <div className="form-group">
-            <label htmlFor="category">Category</label>
-            <select
-              name="category"
-              id="category"
-              value={category}
-              onChange={this.handleInputChange}
-            >
-              <option value="">Select a category</option>
-              <option value="Telephone">Telephone</option>
-              <option value="Internet">Internet</option>
-              <option value="Medical">Medical</option>
-              <option value="Travel">Travel</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="description">Claim Description</label>
-            <textarea
-              name="description"
-              id="description"
-              cols="30"
-              rows="5"
-              maxLength="200"
-              value={description}
-              onChange={this.handleInputChange}
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <label htmlFor="receiptDate">Receipt Date</label>
-            <input
-              type="date"
-              name="receiptDate"
-              id="receiptDate"
-              value={receiptDate}
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="claimAmount">Claim Amount</label>
-            <div className="input-group">
-              <span className="input-group-addon">
-                <select name="currency">
-                  <option value="INR">&#8377;</option>
-                  <option value="USD">$</option>
-                  <option value="EUR">&#8364;</option>
-                  <option value="GBP">&#163;</option>
-                </select>
-              </span>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                name="claimAmount"
-                id="claimAmount"
-                value={claimAmount}
-                onChange={this.handleInputChange}
-              />
-            </div>
-          </div>
+    setSnackbarOpen(false);
+  };
 
-          <div className="form-group" style={{ textAlign: "center" }}>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={this.handleReset}>
-              Reset
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default ClaimForm;
+  return (
+    <div className={classes.container}>
+      <form className={classes.form} onSubmit={handleSubmit}>
+    <Grid container spacing={4}>
+    <Grid item xs={12}>
+    <Typography variant="h5">Claim Form</Typography>
+    </Grid>
+    <Grid item xs={12}>
+    <FormControl className={classes.formControl}>
+    <InputLabel
+               className={classes.inputLabel}
+               id="category-label"
+             >
+    Category
+    </InputLabel>
+    <Select
+               labelId="category-label"
+               id="category"
+               name="category"
+               value={category}
+               onChange={handleInputChange}
+             >
+    <MenuItem value="Telephone">Telephone</MenuItem>
+    <MenuItem value="Internet">Internet</MenuItem>
+    <MenuItem value="Medical">Medical</MenuItem>
+    <MenuItem value="Travel">Travel</MenuItem>
+    </Select>
+    </FormControl>
+    </Grid>
+    <Grid item xs={12}>
+    <TextField
+            id="description"
+            name="description"
+            label="Description"
+            multiline
+            maxRows={3}
+            value={description}
+            onChange={handleInputChange}
+            variant="outlined"
+            fullWidth
+          />
+    </Grid>
+    <Grid item xs={12}>
+    <TextField
+      id="receipt-date"
+      name="receiptDate"
+      label="Receipt Date"
+      type="date"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      fullWidth
+      value={receiptDate}
+      onChange={handleInputChange}
+      inputProps={{
+        max: today, // set max date to current date
+      }}
+    />
+    </Grid>
+    <Grid item xs={12}>
+    <TextField
+             id="claim-amount"
+             name="claimAmount"
+             label="Claim Amount"
+             type="number"
+             fullWidth
+             value={claimAmount}
+             onChange={handleInputChange}
+             inputProps={{ step: 0.01 }}
+           />
+    </Grid>
+    <Grid item xs={12}>
+      <Button variant="contained" color="primary" type="submit" disabled={submitted} >
+        Submit
+      </Button>{" "}
+      <Button variant="contained" color="secondary" onClick={handleReset}>
+        Reset
+      </Button>
+    </Grid>
+    </Grid>
+    <Snackbar
+    anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "left",
+    }}
+    open={snackbarOpen}
+    autoHideDuration={5000}
+    onClose={handleSnackbarClose}
+    message={successMessage || errorMessage}
+    action={
+    <IconButton
+             size="small"
+             aria-label="close"
+             color="inherit"
+             onClick={handleSnackbarClose}
+           >
+    <Close fontSize="small" />
+    </IconButton>
+    }
+    className={successMessage ? classes.success : classes.error}
+    />
+       </form>
+    </div>
+  );
+};
+    
+    export default ClaimForm;
