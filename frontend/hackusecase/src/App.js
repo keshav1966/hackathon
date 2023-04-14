@@ -106,9 +106,7 @@ class ClaimForm extends Component {
     return (
       <div className="claim-form-container">
         <form onSubmit={this.handleSubmit}>
-          <center>
-            <h1>Claim Form</h1>
-          </center>
+          <h1>Claim Form</h1>
           {errorMessage && <div className="error-message">{errorMessage}</div>}
           {successMessage && (
             <div className="success-message">{successMessage}</div>
@@ -138,6 +136,8 @@ class ClaimForm extends Component {
               maxLength="200"
               value={description}
               onChange={this.handleInputChange}
+              className="form-control"
+              placeholder="Enter claim description (max 200 characters)"
             ></textarea>
           </div>
           <div className="form-group">
@@ -148,18 +148,19 @@ class ClaimForm extends Component {
               id="receiptDate"
               value={receiptDate}
               onChange={this.handleInputChange}
+              className="form-control"
             />
           </div>
           <div className="form-group">
             <label htmlFor="claimAmount">Claim Amount</label>
             <div className="input-group">
               <span className="input-group-addon">
-                <select name="currency">
-                  <option value="INR">&#8377;</option>
-                  <option value="USD">$</option>
-                  <option value="EUR">&#8364;</option>
-                  <option value="GBP">&#163;</option>
-                </select>
+              <select name="currency" className="form-select" data-currency="&#8377;">
+              <option value="INR">&#8377;</option>
+              <option value="USD">$</option>
+              <option value="EUR">&#8364;</option>
+              <option value="GBP">&#163;</option>
+            </select>
               </span>
               <input
                 type="number"
@@ -169,13 +170,15 @@ class ClaimForm extends Component {
                 id="claimAmount"
                 value={claimAmount}
                 onChange={this.handleInputChange}
+                className="form-control"
+                placeholder="Enter claim amount"
               />
             </div>
           </div>
-
+    
           <div className="form-group" style={{ textAlign: "center" }}>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={this.handleReset}>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="button" onClick={this.handleReset} className="btn btn-secondary">
               Reset
             </button>
           </div>
@@ -185,4 +188,4 @@ class ClaimForm extends Component {
   }
 }
 
-export default ClaimForm;
+export default ClaimForm;    
