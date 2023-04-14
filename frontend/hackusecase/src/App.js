@@ -136,56 +136,57 @@ class ClaimForm extends Component {
               maxLength="200"
               value={description}
               onChange={this.handleInputChange}
-              className="form-control"
-              placeholder="Enter claim description (max 200 characters)"
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <label htmlFor="receiptDate">Receipt Date</label>
-            <input
-              type="date"
-              name="receiptDate"
-              id="receiptDate"
-              value={receiptDate}
-              onChange={this.handleInputChange}
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="claimAmount">Claim Amount</label>
-            <div className="input-group">
-              <span className="input-group-addon">
-              <select name="currency" className="form-select" data-currency="&#8377;">
+                      className="form-control"
+          placeholder="Enter claim description (max 200 characters)"
+        ></textarea>
+      </div>
+      <div className="form-group">
+        <label htmlFor="receiptDate">Receipt Date</label>
+        <input
+          type="date"
+          name="receiptDate"
+          id="receiptDate"
+          value={receiptDate}
+          onChange={this.handleInputChange}
+          className="form-control"
+          max={new Date().toISOString().split("T")[0]}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="claimAmount">Claim Amount</label>
+        <div className="input-group">
+          <span className="input-group-addon">
+            <select name="currency" className="form-select">
               <option value="INR">&#8377;</option>
               <option value="USD">$</option>
               <option value="EUR">&#8364;</option>
               <option value="GBP">&#163;</option>
             </select>
-              </span>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                name="claimAmount"
-                id="claimAmount"
-                value={claimAmount}
-                onChange={this.handleInputChange}
-                className="form-control"
-                placeholder="Enter claim amount"
-              />
-            </div>
-          </div>
-    
-          <div className="form-group" style={{ textAlign: "center" }}>
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <button type="button" onClick={this.handleReset} className="btn btn-secondary">
-              Reset
-            </button>
-          </div>
-        </form>
+          </span>
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            name="claimAmount"
+            id="claimAmount"
+            value={claimAmount}
+            onChange={this.handleInputChange}
+            className="form-control"
+            placeholder="Enter claim amount"
+          />
+        </div>
       </div>
-    );
-  }
+
+      <div className="form-group" style={{ textAlign: "center" }}>
+        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="button" onClick={this.handleReset} className="btn btn-secondary">
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+);
+}
 }
 
 export default ClaimForm;    
