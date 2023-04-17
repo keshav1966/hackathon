@@ -111,7 +111,7 @@ class ClaimForm extends Component {
     return (
       <div>
       <header className="claim-form-header">
-      <img src="path/to/logo.png" alt="My Insurance Company logo"/>
+        <img src="./incedo-logo.png" alt="My Insurance Company"/>
           <nav>
             <ul>
               <li><a href="/">Home</a></li>
