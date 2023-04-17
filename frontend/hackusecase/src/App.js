@@ -109,6 +109,17 @@ class ClaimForm extends Component {
     } = this.state;
 
     return (
+      <div>
+      <header className="claim-form-header">
+      <img src="path/to/logo.png" alt="My Insurance Company logo"/>
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/claims">Claims</a></li>
+              <li><a href="/about">About Us</a></li>
+            </ul>
+          </nav>
+      </header>
       <div className="claim-form-container">
         <form onSubmit={this.handleSubmit}>
           <h1>Claim Form</h1>
@@ -189,6 +200,10 @@ class ClaimForm extends Component {
         </button>
       </div>
     </form>
+  </div>
+  <footer>
+  <p>Copyright © My Insurance Company 2023</p>
+</footer>
   </div>
 );
 }

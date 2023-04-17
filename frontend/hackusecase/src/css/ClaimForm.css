@@ -1,10 +1,49 @@
 body{
   /* background-image: linear-gradient(to bottom, #4F6289, #fb9a4a);*/
-  background-image: url("../back6.jpg");
+  background-image: url("../back8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
 }
+
+.claim-form-header {
+  background-color: #b223e6a0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  align-items: center;
+  padding: 1rem;
+}
+
+.claim-form-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.claim-form-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.claim-form-header nav li {
+  margin: 0 0.5rem;
+}
+
+.claim-form-header nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.claim-form-header nav a:hover {
+  color: #ffc107;
+}
+
+
 .claim-form-container {
   max-width: 500px;
   max-height: fit-content;
@@ -154,4 +193,12 @@ form {
   color: rgb(16, 166, 16);
   text-align: center;
   margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333333a1;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 50px;
 }
