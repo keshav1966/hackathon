@@ -1,60 +1,20 @@
 .claim-form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-}
-
-.claim-form-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../back1.jpg");
-  background-size: cover; 
-  opacity: 0.7;
-  z-index: -1;
-}
-
-body {
-  background: linear-gradient(to bottom right, #4f6d7a, #c0c0aa);
-}
-
-
-/* Claim Form styles */
-/* .claim-form-container {
   max-width: 500px;
+  max-height: fit-content;
   margin: 0 auto;
   padding: 20px;
-  /* opacity: 70%; 
-  box-shadow: 0 0 0 0.2rem rgba(241, 242, 243, 0.25);
-  background-image: url("../back4.jpg");
-  background-size: cover; 
-  border-radius: 10px; 
-} */
-
-.claim-form-container h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #f7f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom,rgb(239, 220, 185), rgb(223, 223, 149)), radial-gradient(circle, white, blue);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(243, 184, 56, 0.5), 0 0 30px 0 rgba(222, 224, 81, 0.5);
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
+body{
+  background-image: linear-gradient(to bottom,rgb(245, 192, 94), rgb(240, 240, 86)), radial-gradient(circle, white, blue);
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  /* font-weight: bold; */
-  color: #fdf9f9;
 }
-
 #category {
-  appearance: none;
+  background-image: url("../back1.jpg");
   background-color: #f2f2f2;
   border: none;
   border-radius: 5px;
@@ -72,24 +32,54 @@ select:focus {
 }
 
 select option {
-  background-color: white;
+  background-color: rgb(235, 250, 232);
   color: #333;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+.claim-form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-select{
+  background-image: url("../back1.jpg");
 }
 
 .form-control {
   display: block;
   width: 100%;
-  padding: 10px;
-  font-size: 1rem;
+  height: 40px;
+  padding: 5px 10px;
+  padding-inline-end: 0%;
+  font-size: 16px;
   line-height: 1.5;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #171819;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  /* background-color: #fff; */
+  background-image: url("../back1.jpg");
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
 .form-control:focus {
-  border-color: #d6d9dc;
-  box-shadow: 0 0 0 0.2rem rgba(241, 242, 243, 0.25);
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .btn {
@@ -99,47 +89,62 @@ select option {
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: #007bff;
   border: 1px solid #007bff;
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .btn-secondary {
-  background-color: #6c757d;
+  color: #fff;
+  background-color: #ff0000;
   border-color: #6c757d;
 }
 
 .btn-secondary:hover {
-  background-color: #5a6268;
+  color: #fff;
+  background-color: #cc2b2b;
   border-color: #545b62;
 }
 
-.success-message {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #d4edda;
-  color: #155724;
-  border-radius: 5px;
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.error-message {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f8d7da;
-  color: #721c24;
-  border-radius: 5px;
+.success-message {
+  color: rgb(16, 166, 16);
+  text-align: center;
+  margin-bottom: 20px;
 }

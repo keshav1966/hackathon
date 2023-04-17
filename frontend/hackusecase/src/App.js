@@ -31,16 +31,16 @@ class ClaimForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+  
     const maxPolicyAmount = {
       Telephone: 1000,
       Internet: 1000,
       Medical: 5000,
       Travel: 25000,
     };
-
+  
     const { category, description, receiptDate, claimAmount } = this.state;
-
+  
     if (!category || !description || !receiptDate || !claimAmount) {
       this.setState({
         errorMessage: "All fields are mandatory",
@@ -48,15 +48,15 @@ class ClaimForm extends Component {
       });
       return;
     }
-
+  
     const receiptDateObj = new Date(receiptDate);
     const submissionDateObj = new Date();
-
+  
     const timeDiff = Math.abs(
       submissionDateObj.getTime() - receiptDateObj.getTime()
     );
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
+  
     if (diffDays > 30) {
       this.setState({
         errorMessage:
@@ -65,9 +65,9 @@ class ClaimForm extends Component {
       });
       return;
     }
-
+  
     const maxAmount = maxPolicyAmount[category];
-
+  
     if (claimAmount > maxAmount) {
       this.setState({
         errorMessage: `Claim amount should not be greater than max policy amount for ${category} category`,
@@ -75,12 +75,17 @@ class ClaimForm extends Component {
       });
       return;
     }
-
+  
     this.setState({
       successMessage: "Successfully submitted",
       errorMessage: "",
     });
+  
+    setTimeout(() => {
+      this.handleReset();
+    }, 3000);
   }
+  
 
   handleReset() {
     this.setState({
