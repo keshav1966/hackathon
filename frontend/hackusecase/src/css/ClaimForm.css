@@ -5,16 +5,15 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom,rgb(239, 220, 185), rgb(223, 223, 149)), radial-gradient(circle, white, blue);
+  background-image: url("../back2.jpg");
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(243, 184, 56, 0.5), 0 0 30px 0 rgba(222, 224, 81, 0.5);
 }
 
 body{
-  background-image: linear-gradient(to bottom,rgb(245, 192, 94), rgb(240, 240, 86)), radial-gradient(circle, white, blue);
+  background-image: linear-gradient(to bottom, #fff, #fabb07);
 
 }
 #category {
-  background-image: url("../back1.jpg");
   background-color: #f2f2f2;
   border: none;
   border-radius: 5px;
@@ -55,10 +54,6 @@ form {
   margin-bottom: 5px;
 }
 
-.form-select{
-  background-image: url("../back1.jpg");
-}
-
 .form-control {
   display: block;
   width: 100%;
@@ -67,11 +62,11 @@ form {
   padding-inline-end: 0%;
   font-size: 16px;
   line-height: 1.5;
+  resize: none;
   color: #171819;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   /* background-color: #fff; */
-  background-image: url("../back1.jpg");
   border: 1px solid #ced4da;
   border-radius: 4px;
 }
