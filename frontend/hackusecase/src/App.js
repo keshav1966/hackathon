@@ -83,7 +83,7 @@ class ClaimForm extends Component {
   
     setTimeout(() => {
       this.handleReset();
-    }, 3000);
+    }, 2000);
   }
   
 
