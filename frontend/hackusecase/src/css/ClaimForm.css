@@ -1,21 +1,21 @@
 body{
   /* background-image: linear-gradient(to bottom, #4F6289, #fb9a4a);*/
-  background-image: url("../back8.jpg");
+  background-image: url("../back16.png");
   background-repeat: no-repeat;
   background-size: cover;
 
 }
 
 .claim-form-header {
-  background-color: #b223e6a0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
+  background-color: #ffffffd7;
   color: #fff;
   display: flex;
-  font-size: 22px;
+  font-size: 18px;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
+  box-shadow: 0px 5px 10px rgba(250, 100, 19, 0.2), 0px 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .claim-form-header nav ul {
@@ -30,13 +30,14 @@ body{
 }
 
 .claim-form-header nav a {
-  color: #fff;
+  color: #160172;
+  font-weight: bold;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
 .claim-form-header nav a:hover {
-  color: #ffc107;
+  color: #fe5a14;
 }
 
 
@@ -46,10 +47,9 @@ body{
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
-  color: #f2cdfd;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom,#6c6f75a4, #9f42ea83 );
+  background-image: linear-gradient(to bottom, #fa822765, #2f027e6c );
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
 }
 
@@ -60,7 +60,7 @@ body{
   font-size: 16px;
   padding: 10px;
   width: 100%;
-  min-width: auto 510px ;
+  min-width: 510px ;
   transition: all 0.2s ease-in-out;
 }
 
@@ -90,10 +90,15 @@ form {
 .form-group label {
   display: block;
   font-weight: regular;
-  font-size: 18px;
-  color: #f2cdfd;
+  font-size: 16px;
+  color: #ffffff;
   margin-bottom: 5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 2);
+}
+
+  .form-group label:after {
+  content:" *";
+  color:red;
 }
 
 .form-control {
@@ -161,15 +166,15 @@ form {
 
 .btn-primary {
   color: #fff;
-  background-color: #b109ff;
-  border-color: #61078a;
+  background-color: #360093;
+  border-color: #26055f;
   margin-right: 10px;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #610696;
-  border-color: #bf47f3;
+  background-color: #26055f;
+  border-color: #360093;
 }
 
 .btn-secondary {
@@ -185,10 +190,10 @@ form {
 }
 
 .error-message {
-  color: rgb(255, 5, 5);
+  color: #ff0000;
+  font-weight: regular;
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .success-message {
@@ -199,9 +204,10 @@ form {
 }
 
 footer {
-  background-color: #333333c9;
+  background-color: #29026be8;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
   color: #fff;
   padding: 1rem;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }

@@ -44,7 +44,7 @@ class ClaimForm extends Component {
   
     if (!category || !description || !receiptDate || !claimAmount) {
       this.setState({
-        errorMessage: "All fields are mandatory",
+        errorMessage: "All fields are mandatory.",
         successMessage: "",
       });
       return;
@@ -61,7 +61,7 @@ class ClaimForm extends Component {
     if (diffDays > 30) {
       this.setState({
         errorMessage:
-          "Difference between the Receipt date and submission date should not be more than 30 days",
+          "Difference between the Receipt date and submission date should not be more than 30 days.",
         successMessage: "",
       });
       return;
@@ -71,7 +71,7 @@ class ClaimForm extends Component {
   
     if (claimAmount > maxAmount) {
       this.setState({
-        errorMessage: `Claim amount should not be greater than max policy amount for ${category} category`,
+        errorMessage: `Claim amount should not be greater than max policy amount for ${category} category.`,
         successMessage: "",
       });
       return;
@@ -112,7 +112,7 @@ class ClaimForm extends Component {
     return (
       <div>
       <header className="claim-form-header">
-        <img src={logo} alt="My Insurance Company"/>
+      <img src={logo} alt="My Insurance Company" className="logo" />
           <nav>
             <ul>
               <li><a href="/">Home</a></li>
@@ -203,7 +203,7 @@ class ClaimForm extends Component {
     </form>
   </div>
   <footer>
-  <p>Copyright © My Insurance Company 2023</p>
+  <p>Copyright © chatGPT Hackathon</p>
 </footer>
   </div>
 );
