@@ -11,6 +11,7 @@ body{
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
   color: #fff;
   display: flex;
+  font-size: 22px;
   justify-content: space-between;
   margin-bottom: 50px;
   align-items: center;
@@ -45,6 +46,8 @@ body{
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
+  color: #f2cdfd;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   background-image: linear-gradient(to bottom,#6c6f75a4, #9f42ea83 );
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
@@ -57,7 +60,7 @@ body{
   font-size: 16px;
   padding: 10px;
   width: 100%;
-  min-width: 510px;
+  min-width: auto 510px ;
   transition: all 0.2s ease-in-out;
 }
 
@@ -86,8 +89,11 @@ form {
 
 .form-group label {
   display: block;
-  font-weight: bold;
+  font-weight: regular;
+  font-size: 18px;
+  color: #f2cdfd;
   margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .form-control {
@@ -155,43 +161,45 @@ form {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #b109ff;
+  border-color: #61078a;
   margin-right: 10px;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #610696;
+  border-color: #bf47f3;
 }
 
 .btn-secondary {
   color: #fff;
-  background-color: #d93b3b;
+  background-color: #6f6c6c;
   border-color: #7d6c6c;
 }
 
 .btn-secondary:hover {
   color: #fff;
-  background-color: #791d1d;
+  background-color: #343232;
   border-color: #545b62;
 }
 
 .error-message {
-  color: red;
+  color: rgb(255, 5, 5);
   text-align: center;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .success-message {
   color: rgb(16, 166, 16);
   text-align: center;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 footer {
-  background-color: #333333a1;
+  background-color: #333333c9;
   color: #fff;
   padding: 1rem;
   text-align: center;

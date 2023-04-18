@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/ClaimForm.css";
+import logo from "./incedo-logo.png";
 
 class ClaimForm extends Component {
   constructor(props) {
@@ -111,7 +112,7 @@ class ClaimForm extends Component {
     return (
       <div>
       <header className="claim-form-header">
-        <img src="./incedo-logo.png" alt="My Insurance Company"/>
+        <img src={logo} alt="My Insurance Company"/>
           <nav>
             <ul>
               <li><a href="/">Home</a></li>
