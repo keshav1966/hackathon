@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./css/ClaimForm.css";
-import logo from "./incedo-logo.png";
+import logo from "./incedo-logo.png"; // Manual customization
 
 class ClaimForm extends Component {
   constructor(props) {
@@ -49,7 +49,13 @@ class ClaimForm extends Component {
       });
       return;
     }
-  
+    
+    if (this.state.description.length > 200) {
+      this.setState({
+        errorMessage: "Description cannot be longer than 200 characters",
+      });
+    }
+
     const receiptDateObj = new Date(receiptDate);
     const submissionDateObj = new Date();
   
@@ -122,12 +128,16 @@ class ClaimForm extends Component {
           </nav>
       </header>
       <div className="claim-form-container">
+        <div className="message-wrapper">
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          {successMessage && <div className="success-message">{successMessage}</div>}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <h1>Claim Form</h1>
-          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          {/* {errorMessage && <div className="error-message">{errorMessage}</div>}
           {successMessage && (
             <div className="success-message">{successMessage}</div>
-          )}
+          )} */}
           <div className="form-group">
             <label htmlFor="category">Category</label>
             <select
@@ -150,7 +160,7 @@ class ClaimForm extends Component {
               id="description"
               cols="30"
               rows="5"
-              maxLength="200"
+               maxLength="200"
               value={description}
               onChange={this.handleInputChange}
                       className="form-control"
@@ -203,7 +213,8 @@ class ClaimForm extends Component {
     </form>
   </div>
   <footer>
-  <p>Copyright © chatGPT Hackathon</p>
+  <p>Copyright © chatGPT Hackathon</p> 
+  {/* // Manual customization */}
 </footer>
   </div>
 );

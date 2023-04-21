@@ -1,6 +1,6 @@
 body{
   /* background-image: linear-gradient(to bottom, #4F6289, #fb9a4a);*/
-  background-image: url("../back16.png");
+  background-image: url("../back16.png"); /* Manual customization*/
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -49,7 +49,7 @@ body{
   border: 1px solid #ccc;
   color: #ffffff;
   border-radius: 10px;
-  background-image: linear-gradient(to bottom, #f8761365, #ffffff83 );
+  background-image: linear-gradient(to bottom, #f8761365, #ffffff83 ); /* Manual customization*/
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(3, 3, 2, 0.5), 0 0 30px 0 rgba(11, 11, 9, 0.5);
 }
 
@@ -81,6 +81,7 @@ form {
 .claim-form-container h1 {
   text-align: center;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 2);
 }
 
 .form-group {
@@ -108,7 +109,7 @@ form {
   /* background-image: linear-gradient(to bottom,#fad05e, #fff ); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  sans-serif; /* Manual customization*/
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -189,7 +190,31 @@ form {
   border-color: #545b62;
 }
 
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
 .error-message {
+  background-color: rgb(236, 19, 19);
+  min-width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.success-message {
+  background-color: rgb(22, 159, 22);
+  min-width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+
+/* .error-message {
   color: #ff0000;
   font-weight: regular;
   text-align: center;
@@ -201,7 +226,7 @@ form {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-}
+} */
 
 footer {
   background-color: #29026be8;
