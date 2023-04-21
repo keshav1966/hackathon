@@ -199,6 +199,7 @@ form {
 
 .error-message {
   background-color: rgb(236, 19, 19);
+  border-radius: 10px;
   min-width: 100%;
   text-align: center;
   color: white;
@@ -207,6 +208,7 @@ form {
 
 .success-message {
   background-color: rgb(22, 159, 22);
+  border-radius: 10px;
   min-width: 100%;
   text-align: center;
   color: white;
